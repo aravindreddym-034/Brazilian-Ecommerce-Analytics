@@ -16,7 +16,7 @@
 
 ## Overview
 
-This repository contains a structured data pipeline designed to analyze approximately 100,000 orders placed on the Olist store in Brazil between 2016 and 2018. The project encompasses raw data ingestion, programmatic cleaning, exploratory data analysis (EDA), relational database schema construction, custom SQL views, and domain-specific analytical queries.
+This repository contains a structured data pipeline and analytic deliverables for the Olist Brazilian E‑Commerce dataset (2016–2018). The project demonstrates data engineering, exploratory analysis, and business intelligence work across sales, customers, logistics, sellers, and product categories.
 
 <p align="center">
   <img src="https://img.shields.io/badge/Database-Relational_Schema-blue?style=flat-square&logo=database" alt="Database" />
@@ -26,13 +26,23 @@ This repository contains a structured data pipeline designed to analyze approxim
 
 ### Primary Analytical Domains
 
-* **Sales Performance**: Historical revenue trajectories, transaction volumes, and average order value (AOV) dynamics.
+* **Sales Performance**: Historical revenue, transaction volumes, average order value (AOV), and monthly trends.
 * **Customer Segmentation**: Regional customer density, ordering frequency, and state-level purchasing trends.
-* **Logistics & Delivery Efficiency**: Delivery timeframe analysis, carrier delays vs. estimated timelines, and geographic delivery bottlenecks.
-* **Seller Operations**: Revenue generation per seller, regional distribution, and product fulfillment capacity.
-* **Product Category Analytics**: Identification of high-performing product categories, pricing statistics, and volume distributions.
-* **Financial & Payment Methods**: Transaction distribution across credit cards, installments, boleto bancário, and vouchers.
-* **Customer Satisfaction**: Analysis of review scores (1 to 5 scale), response latency, and category-level review distributions.
+* **Logistics & Delivery Efficiency**: Delivery timeframe analysis, carrier delays versus estimated timelines, and geographic delivery bottlenecks.
+* **Seller Operations**: Revenue per seller, regional distribution, and fulfillment throughput.
+* **Product Category Analytics**: High-performing categories, price distributions, and sales volume by category.
+* **Financial & Payment Methods**: Payment type distributions (credit, boleto, vouchers) and installment behavior.
+* **Customer Satisfaction**: Review score analysis, response latency, and category-level satisfaction metrics.
+
+---
+
+## Repository Language Composition
+
+According to repository metadata, the primary language composition is:
+
+* Jupyter Notebook: 100%
+
+This repository focuses on notebook-based analyses and ETL steps implemented in Jupyter notebooks.
 
 ---
 
@@ -125,6 +135,8 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
+> Note: Notebooks are the primary artifacts; ensure Jupyter is installed in the environment.
+
 ### 2. Notebook Execution Pipeline
 
 Run the Jupyter notebooks located in `NoteBooks/` in the following sequence:
@@ -144,5 +156,5 @@ Run the Jupyter notebooks located in `NoteBooks/` in the following sequence:
 
 ## Data Source & References
 
-* **Dataset Source**: [Olist Brazilian E-Commerce Dataset on Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
-* **Dataset Scope**: Commercial records of 100k orders across Brazilian marketplaces (2016–2018).
+* **Dataset Source**: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+* **Dataset Scope**: Commercial records of ~100k orders across Brazilian marketplaces (2016–2018).
