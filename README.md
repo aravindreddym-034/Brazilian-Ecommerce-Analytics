@@ -12,7 +12,7 @@
 
 <p align="center">
   <b>An enterprise-grade, end-to-end Data Analytics and Business Intelligence solution analyzing ~100,000 commercial transactions from the Olist Brazilian E-Commerce marketplace (2016–2018).</b><br>
-  <i>Encompassing automated Python ETL pipelines, normalized MySQL data warehousing, advanced SQL analytical modeling, and an interactive 7-page Power BI executive dashboard suite.</i>
+  <i>Encompassing automated Python ETL pipelines, normalized MySQL data warehousing, advanced SQL analytical modeling, and an interactive 6-page Power BI executive dashboard suite.</i>
 </p>
 
 ---
@@ -47,7 +47,6 @@ Between **2016 and 2018**, Olist connected thousands of independent merchants to
   - [4. Seller & Delivery Operations](#4-seller--delivery-operations)
   - [5. Payment & Installment Analytics](#5-payment--installment-analytics)
   - [6. Product Category Analytics](#6-product-category-analytics)
-  - [7. Geographical Market Analysis](#7-geographical-market-analysis)
 - [🗄️ Relational Database Schema & Data Model](#️-relational-database-schema--data-model)
 - [📐 DAX Measures & Analytical Logic](#-dax-measures--analytical-logic)
 - [💡 Key Business Insights](#-key-business-insights)
@@ -80,7 +79,7 @@ flowchart TD
     subgraph S4["Phase 4: Business Intelligence"]
         E --> G[Power BI Desktop\nProject 2.pbix]
         G --> H[DAX Measure Engine\nTime Intelligence, KPIs, Dynamic Filtering]
-        H --> I[7-Page Executive Dashboard Suite\nInteractive Visualizations & Geo Analytics]
+        H --> I[6-Page Executive Dashboard Suite\nInteractive Visualizations & Analytical Drill-downs]
     end
 ```
 
@@ -96,17 +95,16 @@ flowchart TD
 
 ## 📈 Power BI Interactive Dashboard Suite
 
-The Power BI BI Solution (`PowerBI/Project 2.pbix`) provides interactive decision-support across **7 dedicated analytical modules**:
+The Power BI Solution (`PowerBI/Project 2.pbix`) provides interactive decision-support across **6 dedicated analytical modules**:
 
 ```
 PowerBI/Project 2.pbix
- ├── 1. Executive Dashboard          -> Macro KPIs, Revenue & Order Trends, Fulfillment Breakdown
+ ├── 1. Executive Dashboard          -> Macro KPIs, Revenue & Order Trends, Fulfillment Status Matrix
  ├── 2. Sales Performance Analysis  -> Cash Flow by Tender Type, Monthly Freight Economics, Installments
- ├── 3. Customer Demographics       -> Geographic Distribution, City Heatmaps, Rating Distributions
- ├── 4. Seller & Delivery Operations-> Merchant Concentration, Fulfillment Latency, Bottleneck Tracking
- ├── 5. Payment & Installments      -> Transaction Bins, Multi-Sequence Split Tender, Credit Risk
- ├── 6. Product Category Analytics  -> Category Contribution, Price Elasticity Treemaps, Sales Velocity
- └── 7. Geographical Market Analysis-> State-level Revenue, Regional AOV Arbitrage, Territorial Demand
+ ├── 3. Customer Demographics       -> State Distribution, Top 10 Metropolitan Cities, Review Scores
+ ├── 4. Seller & Delivery Operations-> Merchant Concentration, Seller Geography, Delivery Timelines
+ ├── 5. Payment & Installments      -> Transaction Bins, Multi-Sequence Split Tender, Installment Depth
+ └── 6. Product Category Analytics  -> Category Contribution, Price Elasticity Treemaps, Sales Velocity
 ```
 
 ---
@@ -115,36 +113,46 @@ PowerBI/Project 2.pbix
 > **Strategic Focus**: C-Suite operational pulse tracking macro-level marketplace health, financial performance, and fulfillment reliability.
 
 <p align="center">
-  <img src="Dash%20Board%20Images/1.Executive%20Dashboard.png" alt="Executive Dashboard" width="100%" />
+  <img src="Dash%20Board%20Images/1.%20Executive%20Dashboard.png" alt="Executive Dashboard" width="100%" />
 </p>
 
 - **Key Performance Indicators (Scorecards)**:
-  - **Total Revenue**: `R$ 16.01M` (▲ **+28.6%** vs previous period)
-  - **Total Orders**: `99K` (▲ **+25.4%** vs previous period)
-  - **Total Customers**: `96K` (▲ **+24.7%** vs previous period)
-  - **Average Review Score**: `4.09 / 5.00` (▲ **+0.15** customer satisfaction)
-  - **On-Time Delivery Rate**: `92.0%` (▲ **+3.2%** logistics efficiency)
-  - **Average Order Value (AOV)**: `R$ 160.99` (▲ **+2.8%** spend per transaction)
+  - 💵 **Total Revenue**: `R$ 16.01M` (Gross marketplace revenue volume across all completed transactions)
+  - 📦 **Total Orders**: `99K` (Total commercial orders placed on the platform)
+  - 👥 **Total Customers**: `96K` (Distinct consumer base across Brazilian municipalities)
+  - ⭐ **Average Review Score**: `4.09 / 5.00` (Marketplace satisfaction rating)
+  - 🚚 **On-Time Delivery %**: `92%` (Fulfillment reliability benchmark meeting estimated delivery dates)
+  - 🏷️ **Average Order Value (AOV)**: `R$ 160.99` (Mean spend per transaction)
 - **Visual Analytics**:
-  - **Total Revenue by Month-Year**: Area/line trend chart capturing rapid scaling through 2017 with seasonal Black Friday peak (~R$ 1.3M in Nov 2017).
-  - **Total Orders by Month-Year**: Monthly transaction velocity confirming consistent demand growth.
-  - **Order by Status (Donut & Matrix)**: Comprehensive fulfillment status verification (**97.02% delivered** [96K], 1.11% shipped, 0.51% canceled, 0.29% unavailable, 0.17% invoiced, 0.08% processing).
-- **Interactive Controls**: Global Date Range Slicer (`Nov 2016 – May 2018`) and monthly/quarterly granularity drill-downs.
+  - **Total Revenue by Month Year**: Area line chart tracking revenue growth trajectory from Sep 2016 through Sep 2018, capturing rapid expansion across 2017 to peak in **Nov 2017 (Black Friday, ~R$ 1.15M–1.2M)**, and sustained high performance throughout Jan–Jul 2018 (~R$ 1.0M–1.15M/month).
+  - **Total Orders by Month Year**: Monthly order volume progression climbing from early volumes in 2016 to a high of **~7.3K orders in Nov 2017**, maintaining **~6.2K–7.1K orders per month** through mid-2018.
+  - **Order By Status (Donut Chart & Detailed Breakdown Matrix)**:
+    - 🔵 **delivered**: **96K (97.02%)** — dominant successful fulfillment
+    - 🔷 **shipped**: **1K (1.11%)** — orders in transit
+    - 🟠 **canceled**: **508 (0.51%)** — buyer/seller cancellations
+    - 🟣 **unavailable**: **286 (0.29%)** — inventory stockout exceptions
+    - 🟪 **invoiced**: **167 (0.17%)** — invoice generated awaiting carrier pickup
+    - 🟣 **processing**: **81 (0.08%)** — payment approved, processing fulfillment
+    - 🟡 **created**: **48 (0.05%)** — newly created orders
+    - 🔴 **approved**: **22 (0.02%)** — approved payment orders
+- **Footer**: `Source: Olist Brazilian E-Commerce Dataset`
 
 ---
 
 ### 2. Sales Performance Analysis
-> **Strategic Focus**: Revenue engine diagnostics, tender cash-flow distribution, freight expense monitoring, and financing trends.
+> **Strategic Focus**: Revenue engine diagnostics, payment tender cash-flow distribution, logistics freight overhead, and installment financing behavior.
 
 <p align="center">
   <img src="Dash%20Board%20Images/2.%20Sales%20Analysis.png" alt="Sales Performance Analysis" width="100%" />
 </p>
 
+- **Interactive Controls**: Date Range Slicer (`Sep 2016 - Oct 2018`).
 - **Visual Analytics**:
-  - **Total Revenue by Payment Type**: Donut chart demonstrating **Credit Card dominance at 78.34% (R$ 12.54M)**, followed by **Boleto Bancário at 17.92% (R$ 2.87M)**, **Voucher at 2.37% (R$ 0.38M)**, and Debit Card.
-  - **Monthly Freight Cost**: Expense tracking curve tracking logistics costs scaling with order surges (~R$ 170K/month peak).
-  - **Total Products Sold by Month-Year**: Volume progression scaling to >10,000 units sold per month.
-  - **Order Volume by Payment Installments**: Distribution analysis showing **53K single-installment orders**, followed by 2 to 4 installments for mid-range purchases, and up to 20+ installments for high-ticket items.
+  - **Total Revenue by Payment Type (Donut Chart)**: Demonstrates **Credit Card dominance at 78.34% (R$ 12.54M)**, followed by **Boleto Bancário at 17.92% (R$ 2.87M)**, **Voucher at 2.37% (R$ 0.38M)**, and Debit Card / Undefined.
+  - **Monthly Freight Cost (Line Chart)**: Tracks freight expenditure over time, rising from under R$ 10K in late 2016 to peak surges of **~R$ 175K in Nov 2017** and sustaining **~R$ 160K–R$ 185K/month** across 2018 alongside order volume growth.
+  - **Total Products Sold by Month Year (Line Chart)**: Unit sales volume progression scaling from <1K items in late 2016 to a peak of **>9K units in Nov 2017**, and sustaining **7.5K–8.5K units monthly** throughout 2018.
+  - **Orders by Payment Installments (Bar Chart)**: Distribution analysis showing single-installment transactions strongly dominate (**>53K orders**), followed by 2 installments (~12K), 3 installments (~10K), 4 installments (~7K), 5 installments (~5K), with a notable secondary surge at **10 installments (~5K orders)** for higher-ticket purchases, extending out to 24 installments.
+- **Footer**: `Source: Olist Brazilian E-Commerce Dataset`
 
 ---
 
@@ -155,10 +163,12 @@ PowerBI/Project 2.pbix
   <img src="Dash%20Board%20Images/3.Customer%20Analysis.png" alt="Customer Demographics & Behavior" width="100%" />
 </p>
 
+- **Interactive Controls**: Date Range Slicer (`Nov 2016 - May 2018`).
 - **Visual Analytics**:
-  - **Customers by State**: Horizontal ranking showing the Southeast corridor leading national demand: **São Paulo (`SP`) with ~41.7K customers**, **Rio de Janeiro (`RJ`) with ~12.9K**, **Minas Gerais (`MG`) with ~11.6K**, followed by `RS`, `PR`, `SC`, and `BA`.
-  - **Top 10 Customer Cities**: Granular metropolitan rankings led by **São Paulo (~15.5K)**, **Rio de Janeiro (~6.8K)**, **Belo Horizonte (~2.8K)**, **Brasília (~2.1K)**, and **Curitiba (~1.8K)**.
-  - **Customer Review Score Distribution**: Satisfaction profile showing that **5-star ratings dominate (~57K reviews)**, 4-star ratings account for ~19K reviews, while 1-star friction points account for ~11K reviews (primarily logistics-driven).
+  - **Customers by State (Horizontal Bar Chart)**: Ranking displaying extreme geographic concentration in the Southeast and South regions: **São Paulo (`SP`) leading with ~41.7K customers**, followed by **Rio de Janeiro (`RJ`) with ~12.9K**, **Minas Gerais (`MG`) with ~11.6K**, **Rio Grande do Sul (`RS`) with ~5.5K**, **Paraná (`PR`) with ~5.0K**, **Santa Catarina (`SC`) with ~3.6K**, **Bahia (`BA`) with ~3.4K**, **Distrito Federal (`DF`) with ~2.1K**, **Espírito Santo (`ES`) with ~2.0K**, and **Goiás (`GO`) with ~2.0K**.
+  - **Top 10 Customer Cities (Horizontal Bar Chart)**: Granular metropolitan rankings led by **São Paulo (~15.5K)**, **Rio de Janeiro (~6.8K)**, **Belo Horizonte (~2.8K)**, **Brasília (~2.1K)**, **Curitiba (~1.8K)**, **Campinas (~1.5K)**, **Porto Alegre (~1.4K)**, **Salvador (~1.3K)**, **Guarulhos (~1.2K)**, and **São Bernardo do Campo (~1.0K)**.
+  - **Customer Review Score Distribution (Bar Chart)**: Customer sentiment profiling revealing **5-star ratings strongly dominating (~57.3K reviews)**, followed by 4-star ratings (~19.1K reviews), 3-star ratings (~8.1K reviews), 1-star ratings (~11.4K reviews, indicating delivery/fulfillment friction), and 2-star ratings (~3.2K reviews).
+- **Footer**: `Source: Olist Brazilian E-Commerce Dataset`
 
 ---
 
@@ -169,10 +179,12 @@ PowerBI/Project 2.pbix
   <img src="Dash%20Board%20Images/4.%20Seller%20%26%20Delivery%20Analysis.png" alt="Seller & Delivery Operations" width="100%" />
 </p>
 
+- **Interactive Controls**: Date Range Slicer (`Sep 2016 - Oct 2018`).
 - **Visual Analytics**:
-  - **Top 10 Sellers by Orders**: Identification of marketplace power merchants processing up to ~2,000 completed orders each.
-  - **Seller Distribution by State**: Merchant geography confirming extreme seller density in **São Paulo (`SP` >1,800 active merchants)**, followed by **Paraná (`PR` ~350)**, **Minas Gerais (`MG` ~250)**, and Rio de Janeiro.
-  - **Average Delivery Days by Month**: Longitudinal tracking demonstrating dramatic operational efficiency gains from early marketplace inception delays down to a stable **12–14 day national delivery cycle**.
+  - **Top 10 Sellers by Orders (Horizontal Bar Chart)**: Identification of marketplace power merchants processing up to **~2,000 completed orders each** (led by `6560211a19b47992c36...`, `4a3ca9315b744ce9f8e9...`, `1f50f920176fa81dab994...`, and `cc419e0650a3c5ba7718...`).
+  - **Seller Distribution by State (Bar Chart)**: Merchant geography confirming extreme seller density in **São Paulo (`SP` with >1,800 active merchants)**, followed by **Paraná (`PR` ~350)**, **Minas Gerais (`MG` ~250)**, **Santa Catarina (`SC` ~200)**, **Rio de Janeiro (`RJ` ~170)**, **Rio Grande do Sul (`RS` ~130)**, and **Goiás (`GO` ~80)**.
+  - **Average Delivery Days by Month (Line Chart)**: Longitudinal operational latency tracking from early inception delivery delays (~280 days in Sep 2016) down to a stable baseline across 2017 and 2018.
+- **Footer**: `Source: Olist Brazilian E-Commerce Dataset`
 
 ---
 
@@ -183,48 +195,39 @@ PowerBI/Project 2.pbix
   <img src="Dash%20Board%20Images/5.Payment%20Analysis.png" alt="Payment & Installment Analytics" width="100%" />
 </p>
 
+- **Interactive Controls**: Date Range Slicer (`Nov 2016 - Dec 2016`).
 - **Visual Analytics**:
-  - **Payment Value Distribution (Histogram)**: Binned distribution displaying massive transaction density concentrated under R$ 200, with a long-tail distribution reaching maximum ticket sizes of R$ 13,664.
-  - **Orders by Payment Sequence**: Analysis of multi-tender transactions, highlighting customers splitting payments across vouchers and credit cards (up to 30 sequential payment methods per order).
-  - **Payment Type and Installment Usage**: Multi-series breakdown comparing installment depth across payment types (credit card usage spanning 1 to 24 installments vs single-charge boletos).
+  - **Payment Value Distribution (Histogram)**: Binned distribution displaying massive transaction density concentrated under **R$ 200–500** (>30K orders in the lowest bucket), with a long-tail distribution reaching maximum ticket sizes of **R$ 13,664**.
+  - **Orders by Payment Sequence (Bar Chart)**: Analysis of multi-tender transactions; the vast majority of orders (~100K) use a single payment sequence, while multi-payment split transactions (combining multiple vouchers and credit cards) span up to 30 sequential payment methods.
+  - **Payment Type and Installment Usage (Clustered Bar Chart)**: Multi-series breakdown comparing installment depth across payment types—**Credit Card** usage spans 1 to 24 installments (1x: ~25K, 2x: ~12K, 3x: ~10K, 4x: ~7K, 5x: ~5K, 6x: ~4K, 8x: ~4K, 10x: ~5K), whereas **Boleto** (~20K), **Voucher** (~6K), and **Debit Card** (~2K) operate exclusively on single installments.
+- **Footer**: `Source: Olist Brazilian E-Commerce Dataset`
 
 ---
 
 ### 6. Product Category Analytics
-> **Strategic Focus**: Catalog revenue engines, unit sales velocity, and category price elasticity.
+> **Strategic Focus**: Catalog revenue engines, unit sales velocity, and category price elasticity treemaps.
 
 <p align="center">
   <img src="Dash%20Board%20Images/6.Product%20Analysis.png" alt="Product Category Analytics" width="100%" />
 </p>
 
+- **Interactive Controls**: Date Range Slicer (`Nov 2016 - Dec 2016`).
 - **Visual Analytics**:
-  - **Top 10 Product Categories by Revenue**:
-    1. 💄 `health_beauty` (~**R$ 1.26M**)
-    2. ⌚ `watches_gifts` (~**R$ 1.20M**)
-    3. 🛏️ `bed_bath_table` (~**R$ 1.04M**)
-    4. ⚽ `sports_leisure` (~**R$ 0.99M**)
-    5. 💻 `computers_accessories` (~**R$ 0.91M**)
+  - **Top 10 Product Categories by Revenue (Horizontal Bar Chart)**:
+    1. 💄 `health_beauty` (~**R$ 1.26M - R$ 1.30M**)
+    2. ⌚ `watches_gifts` (~**R$ 1.20M - R$ 1.25M**)
+    3. 🛏️ `bed_bath_table` (~**R$ 1.05M - R$ 1.10M**)
+    4. ⚽ `sports_leisure` (~**R$ 0.98M - R$ 1.00M**)
+    5. 💻 `computers_accessories` (~**R$ 0.91M - R$ 0.95M**)
     6. 🛋️ `furniture_decor` (~**R$ 0.73M**)
     7. 📱 `cool_stuff` (~**R$ 0.63M**)
     8. 🍳 `housewares` (~**R$ 0.63M**)
     9. 🚗 `auto` (~**R$ 0.59M**)
     10. 🌿 `garden_tools` (~**R$ 0.49M**)
-  - **Products Sold by Category**: Volume distribution identifying high-velocity everyday goods (`bed_bath_table` leading with >11K units sold).
-  - **Average Product Price by Category (Treemap)**: Hierarchical pricing treemap categorizing premium categories (computers, watches, small appliances) versus high-volume consumer goods.
-
----
-
-### 7. Geographical Market Analysis
-> **Strategic Focus**: Spatial revenue mapping, state-level order density, and regional Average Order Value (AOV) arbitrage.
-
-<p align="center">
-  <img src="Dash%20Board%20Images/7.%20Geographical%20Analysis.png" alt="Geographical Market Analysis" width="100%" />
-</p>
-
-- **Visual Analytics**:
-  - **Revenue by Customer State**: Regional revenue dominance led by **São Paulo (R$ 5.9M+)**, **Rio de Janeiro (R$ 2.1M)**, **Minas Gerais (R$ 1.8M)**, **Rio Grande do Sul (R$ 0.9M)**, and **Paraná (R$ 0.8M)**.
-  - **Average Order Value (AOV) by State**: Key strategic discovery—customers in remote Northern and Northeastern states (**Paraíba `PB`, Acre `AC`, Rondônia `RO`, Amapá `AP`, Mato Grosso `MT`**) exhibit significantly higher AOVs (**R$ 220 – R$ 270+**) compared to SP/MG (~R$ 150), as customers consolidate orders to offset higher freight charges.
-  - **Top 10 States by Orders**: Order volume distribution mirroring economic and population centers across Brazil.
+    *(Also displaying `toys` ~R$ 0.48M, `baby` ~R$ 0.40M, `perfumery` ~R$ 0.39M)*
+  - **Products Sold by Category (Vertical Bar Chart)**: Total category sales volume and revenue comparison across all catalog segments ranging from high-velocity leaders to niche categories (`telephony`, `office_furniture`, `stationery`, `consoles_games`, `pet_shop`, `musical_instruments`, `small_appliances`, `electronics`, `fashion_bags_accessories`, `home_appliances`, `home_comfort_2`, `home_appliances_2`).
+  - **Average Product Price by Category (Treemap)**: Hierarchical pricing treemap illustrating category size and pricing composition across `bed_bath_table`, `health_beauty`, `sports_leisure`, `furniture_decor`, `computers_accessories`, `housewares`, `watches_gifts`, `telephony`, `garden_tools`, `auto`, `toys`, `cool_stuff`, `perfumery`, `baby`, `pet_shop`, `office_furniture`, `consoles_games`, `electronics`, `stationery`, `fashion_bags_accessories`, and `luggage_accessories`.
+- **Footer**: `Source: Olist Brazilian E-Commerce Dataset`
 
 ---
 
@@ -390,13 +393,12 @@ AVERAGEX(
 Brazilian-Ecommerce-Analytics/
 │
 ├── Dash Board Images/                  # Exported Power BI dashboard screenshots
-│   ├── 1.Executive Dashboard.png       # Executive overview & core KPI scorecards
+│   ├── 1. Executive Dashboard.png      # Executive overview & core KPI scorecards
 │   ├── 2. Sales Analysis.png           # Sales trends, freight costs & payment types
 │   ├── 3.Customer Analysis.png         # Customer distribution, top cities & reviews
 │   ├── 4. Seller & Delivery Analysis.png # Merchant performance & delivery timelines
 │   ├── 5.Payment Analysis.png          # Payment values, split sequences & installments
-│   ├── 6.Product Analysis.png          # Product revenue, category volume & pricing treemap
-│   └── 7. Geographical Analysis.png    # State revenue, regional AOV & order volumes
+│   └── 6.Product Analysis.png          # Product revenue, category volume & pricing treemap
 │
 ├── Data/
 │   ├── Raw/                            # 9 Original Olist CSV datasets
@@ -418,7 +420,7 @@ Brazilian-Ecommerce-Analytics/
 │   └── exploratory_data_analysis.ipynb # Deep-dive statistical analysis & KPI visual exploration
 │
 ├── PowerBI/
-│   └── Project 2.pbix                  # Complete 7-page interactive Power BI report
+│   └── Project 2.pbix                  # Complete 6-page interactive Power BI report
 │
 ├── SQL/
 │   ├── Tables.sql                      # DDL schema creation & LOAD DATA INFILE scripts
@@ -494,7 +496,7 @@ Execute notebooks sequentially:
 | **Data Cleaning & ETL** | Python 3.10+, Pandas, NumPy | Automated data transformation, date parsing, missing data imputation |
 | **Exploratory Analytics** | Jupyter Lab, Matplotlib, Seaborn | Exploratory data analysis, distribution analysis, correlation metrics |
 | **Data Warehousing** | MySQL 8.0, SQL Views, Indexing | Relational modeling, schema integrity, analytical queries |
-| **Business Intelligence** | Power BI Desktop, DAX, Power Query | Interactive 7-page executive dashboard suite, KPI cards, spatial maps |
+| **Business Intelligence** | Power BI Desktop, DAX, Power Query | Interactive 6-page executive dashboard suite, KPI cards, spatial maps |
 | **Documentation** | GitHub Markdown, Mermaid.js | System architecture, ER diagrams, data dictionaries |
 
 ---
